@@ -1,5 +1,7 @@
 """
+streamlit run Hello.py --server.enableCORS false --server.enableXsrfProtection false
 """
+import os
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -10,6 +12,10 @@ import plotly.graph_objects as go
 import inspect
 from bayes_opt import BayesianOptimization
 from enum import Enum, auto
+
+
+# 'data.csv' ファイルの相対パス
+file_path = os.path.join(os.path.dirname(__file__), 'data.csv')
 
 
 class Status(Enum):
@@ -224,7 +230,7 @@ def main():
             if uploaded_file is not None:
                 df = read_csv_file(uploaded_file)
         else:
-            df = read_csv_file('data.csv')
+            df = read_csv_file(file_path)
         # データの表示、編集
         df = col1.data_editor(df, height=300, use_container_width=True, num_rows='dynamic')
         # データの選択
