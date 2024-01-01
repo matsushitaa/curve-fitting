@@ -78,7 +78,7 @@ def get_fit_function(st, st2, len_data):
     elif selected_fitting_option == 'logarithmic':
         function_text = """def fit_function(x, a, b):\n    return a * np.log(x) + b"""
     elif selected_fitting_option == 'polynomial':
-        order = col12.number_input('Order', value=2, min_value=0, max_value=len_data-1)
+        order = col12.number_input('Order', value=2, min_value=0, max_value=max(0,len_data-1))
         function_text = f"def fit_function(x, {', '.join(f'a{i}' for i in range(order + 1))}):\n"
         function_text += f"    return {' + '.join(f'a{i} * x**{i}' for i in range(order + 1))}"
     elif selected_fitting_option == 'power':
