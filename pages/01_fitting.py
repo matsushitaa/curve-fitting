@@ -1,6 +1,3 @@
-"""
-streamlit run Hello.py --server.enableCORS false --server.enableXsrfProtection false
-"""
 import os
 import streamlit as st
 import pandas as pd
