@@ -219,7 +219,7 @@ def main():
     if 'optimizer' not in st.session_state:
         st.session_state.optimizer = None
 
-    st.subheader("1. Input Data")
+    st.subheader("1. Data Input")
     with st.container(border=True):
         col1, col2 = st.columns(2)
         df = pd.DataFrame({'x':[np.nan],'y':[np.nan]})
